@@ -43,7 +43,7 @@ const useStyles = makeStyles({
   },
 });
 
-const Form = ({ setPercentage }) => {
+const Form = ({ setPercentage, setShow }) => {
   const [total, setTotal] = useState(0);
   const style = useStyles();
   return (
@@ -57,6 +57,7 @@ const Form = ({ setPercentage }) => {
             visual: "",
           }}
           onSubmit={(values) => {
+            setShow(true);
             // console.log(
             setPercentage(
               Object.values(values).reduce(

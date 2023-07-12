@@ -10,16 +10,10 @@ import {
 import React, { useState } from "react";
 import Form from "./form";
 import Persentage from "./persentage";
-// const Item = styled(Paper)(({ theme }) => ({
-//   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-//   ...theme.typography.body2,
-//   padding: theme.spacing(1),
-//   textAlign: "center",
-//   color: theme.palette.text.secondary,
-// }));
 
 const Main = () => {
   const [percentage, setPercentage] = useState();
+  const [show, setShow] = useState(false);
   return (
     <>
       <Box
@@ -39,26 +33,30 @@ const Main = () => {
           }}
           container
         >
-          <Grid
-            item
-            sx={{ bgcolor: "#6340FC", borderRadius: "20px" }}
-            xs={12}
-            md={6}
-            lg={6}
-          >
-            <Persentage percentage={percentage} />
-          </Grid>
+          {show && (
+            <Grid
+              item
+              sx={{ bgcolor: "#6340FC", borderRadius: "20px" }}
+              xs={12}
+              md={6}
+              lg={6}
+            >
+              <Persentage percentage={percentage} />
+            </Grid>
+          )}
           <Grid
             item
             sx={{
               borderRadius: " 0px 50px 50px 0px",
+              // width:{{show === "true " ? }},
               p: 1,
             }}
             xs={12}
             md={6}
             lg={6}
+            
           >
-            <Form setPercentage={setPercentage} />
+            <Form setPercentage={setPercentage} setShow={setShow} />
           </Grid>
         </Grid>
       </Box>
